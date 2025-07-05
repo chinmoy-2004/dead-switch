@@ -1,10 +1,12 @@
 import pkg from 'aws-sdk';
 const { S3 } = pkg;
+import dotenv from 'dotenv';
+dotenv.config();
 
 const s3 = new S3({
-  accessKeyId: "e9364087820e6856708f8c4e724a3c99",
-  secretAccessKey: "fbc8a523f713f8abf0fdb4598efe3198764c87638e5a0ba2a50b17619e6d8ac8",
-  endpoint: "https://572116e5654202128200d5e8e0e340ca.r2.cloudflarestorage.com",  
+  accessKeyId: process.env.accessKeyId,
+  secretAccessKey: process.env.secretAccessKey,
+  endpoint: process.env.endpoint, // Cloudflare R2 endpoint
   region: "auto",                                  
   signatureVersion: "v4",         
 });
