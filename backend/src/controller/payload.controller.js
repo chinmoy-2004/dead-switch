@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { deleteFromS3 } from "../lib/s3.js";
 import { encryptBuffer } from "../lib/crypto.js";
 import { uploadToS3 } from "../lib/s3.js";
-import Payload from "../schema/Payload.schema.js";
+import Payload from "../schema/payload.schema.js";
 import { decryptBuffer } from "../lib/crypto.js";
 
 
