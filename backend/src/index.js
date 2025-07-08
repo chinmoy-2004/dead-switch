@@ -7,7 +7,7 @@ import initRedisExpiryListener from './redisserver/triggerlistner.js';
 import dotenv from 'dotenv';
 import authRoutes from './router/auth.route.js';
 import switchRoutes from "./router/switch.route.js"
-// import triggerworker from "./worker/trigger.worker.js"
+import triggerworker from "./worker/trigger.worker.js"
 import payloadroutes from './router/payload.router.js';
 dotenv.config();
 const app = express();
@@ -33,7 +33,7 @@ app.use('/api/payload', payloadroutes); // Serve static files from 'uploads' dir
 (async () => {
   await connectRedis();
   await initRedisExpiryListener();
-  // await triggerworker;
+  await triggerworker;
 })();
 
 
