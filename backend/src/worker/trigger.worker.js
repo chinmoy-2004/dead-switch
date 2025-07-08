@@ -1,6 +1,6 @@
 import { Worker } from "bullmq";
 import Switch from "../schema/Switch.schema.js"; 
-import Payload from "../schema/Payload.schema.js";
+import Payload from "../schema/payload.schema.js";
 
 import {  sendEmail } from "../lib/delivey.js";
 const connection = { host: "localhost", port: 6379 };
