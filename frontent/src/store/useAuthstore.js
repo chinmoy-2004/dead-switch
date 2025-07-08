@@ -14,7 +14,7 @@ const useAuthstore = create((set, get) => ({
         try {
             const res=await axiosInstance.get("/auth/checkauth");
             set({authuser:res.data});
-            console.log("authuser",res.data);
+            // console.log("authuser",res.data);
         } catch (error) {
             console.log("error in authstore checkauth",error)
             toast.error(error.response?.data?.message || "Internal server error");
@@ -29,7 +29,7 @@ const useAuthstore = create((set, get) => ({
             toast.success("Signed up sucessfully")
             
         } catch (error) {
-            console.log("error in authstore signup",error)
+            // console.log("error in authstore signup",error)
              toast.error(error.response?.data?.message || "Internal server error");
         }
         finally {
@@ -44,7 +44,7 @@ const useAuthstore = create((set, get) => ({
             set({authuser:res.data});
             toast.success("session generated sucessfully");
         } catch (error) {
-            console.log("error in authstore login",error)
+            // console.log("error in authstore login",error)
            toast.error(error.response?.data?.message || "Internal server error");
         }
         finally {
@@ -58,7 +58,7 @@ const useAuthstore = create((set, get) => ({
             set({authuser:null});
             toast.success("session ended sucessfully")
         } catch (error) {
-            console.log("error in authstore logout",error)
+            // console.log("error in authstore logout",error)
             toast.error(error.response?.data?.message || "Internal server error");
         }
     }
