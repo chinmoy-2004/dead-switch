@@ -153,7 +153,7 @@ const NewSwitch = () => {
     };
 
 
-    console.log("Switch Configuration:", submissionData);
+    // console.log("Switch Configuration:", submissionData);
 
     const swichedata = new FormData();
     swichedata.append("name", submissionData.title);
