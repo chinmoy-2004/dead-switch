@@ -14,7 +14,7 @@ subscriber.on("error", (err) => console.error("Redis subscriber error", err));
 const connectRedis = async () => {
   await redis.connect();
   await subscriber.connect();
-  await redis.configSet("notify-keyspace-events", "Ex");
+  // await redis.configSet("notify-keyspace-events", "Ex");
 };
 
 export { redis, subscriber, connectRedis };
