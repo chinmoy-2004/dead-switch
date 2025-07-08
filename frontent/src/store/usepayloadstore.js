@@ -14,10 +14,10 @@ const usePayloadStore = create((set, get) => ({
         try {
             set({ ispayloadcreating: true });
             const res = await axiosInstance.post("/payload/createpayload", payloadData);
-            console.log("Payload added:", res.data);
+            // console.log("Payload added:", res.data);
             toast.success("Payload added successfully");
         } catch (error) {
-            console.error("Error adding payload:", error);
+            // console.error("Error adding payload:", error);
              toast.error(error.response?.data?.message || "Internal server error");
         }
         finally {
@@ -29,10 +29,10 @@ const usePayloadStore = create((set, get) => ({
         try {
             set({ ispayloadfetching: true,payloaddata:null });
             const res = await axiosInstance.get(`/payload/getpayloadbyswitchid/${switchId}`);
-            console.log("Payload fetched:", res.data);
+            // console.log("Payload fetched:", res.data);
             set({ payloaddata: res.data });
         } catch (error) {
-            console.log("error in getpayload by id",error);
+            // console.log("error in getpayload by id",error);
              toast.error(error.response?.data?.message || "Internal server error");
         }
         finally {
