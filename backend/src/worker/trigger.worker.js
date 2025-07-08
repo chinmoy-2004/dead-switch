@@ -1,9 +1,13 @@
 import { Worker } from "bullmq";
 import Switch from "../schema/Switch.schema.js"; 
 import Payload from "../schema/payload.schema.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 import {  sendEmail } from "../lib/delivey.js";
-const connection = { host: "localhost", port: 6379 };
+const connection = {
+  url: process.env.REDIS_URL
+};
 
 const worker = new Worker("expiryQueue", async job => {
   const { switchId } = job.data;
