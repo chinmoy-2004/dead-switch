@@ -31,7 +31,7 @@ const useSwitchStore = create((set, get) => ({
             });
            
         } catch (error) {
-            console.error("Error fetching switches:", error);
+            // console.error("Error fetching switches:", error);
             toast.error("Failed to fetch switches");
         } finally {
             set({ isfetching: false });
@@ -55,7 +55,7 @@ const useSwitchStore = create((set, get) => ({
             toast.success("Switch added successfully");
             return res.data;
         } catch (error) {
-            console.error("Error adding switch:", error);
+            // console.error("Error adding switch:", error);
             toast.error(error.response?.data?.message || "Failed to add switch");
         } finally {
             set({ isswitchcreating: false });
@@ -66,10 +66,10 @@ const useSwitchStore = create((set, get) => ({
         try {
             set({ isswitchpinging: true });
             const res = await axiosInstance.post(`/switch/pingswitch/${switchId}`);
-            console.log("Ping response:", res.data);
+            // console.log("Ping response:", res.data);
             toast.success("Switch pinged successfully");
         } catch (error) {
-            console.error("Error pinging switch:", error);
+            // console.error("Error pinging switch:", error);
             toast.error(error.response?.data?.message || "Failed to ping switch");  
         } finally {
             set({ isswitchpinging: false });
@@ -91,7 +91,7 @@ const useSwitchStore = create((set, get) => ({
             });
             toast.success("Switch deleted successfully");
         } catch (error) {
-            console.error("Error deleting switch:", error);
+            // console.error("Error deleting switch:", error);
             toast.error(error.response?.data?.message || "Failed to delete switch");
         }
     },
@@ -100,11 +100,11 @@ const useSwitchStore = create((set, get) => ({
         try {
             set({ isswitchfetching: true, switchdata: null });
             const res = await axiosInstance.get(`/switch/getswitch/${switchId}`);
-            console.log("Switch details:", res.data);
+            // console.log("Switch details:", res.data);
             set({ switchdata: res.data });
             return res.data;
         } catch (error) {
-            console.error("Error fetching switch by ID:", error);
+            // console.error("Error fetching switch by ID:", error);
             toast.error(error.response?.data?.message || "Failed to fetch switch details");
             return null;
         } finally {
